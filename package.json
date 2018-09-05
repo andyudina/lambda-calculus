@@ -1,0 +1,21 @@
+{
+  "name": "calculus",
+  "version": "1.0.0",
+  "description": "Calculator API",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha './tests/**/*.js'"
+  },
+  "keywords": [
+    "Lambda",
+    "nodejs"
+  ],
+  "author": "Anastasiia Diudina",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "node-lambda": "^0.12.0",
+    "sinon": "^6.2.0"
+  }
+}

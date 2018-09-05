@@ -4,7 +4,7 @@
 # testing
 /coverage
 
-# production
+# lambda package directory
 /build
 
 # misc
@@ -21,3 +21,7 @@ yarn-error.log*
 # test file with lambda events
 event.json
 context.json
+
+# environment variables for lambda deployment
+.env
+.lambda

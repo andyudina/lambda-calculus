@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 const clean = require('../api/request/clean');
 
-describe('Clean arythmetic expression', () => {
+describe('Clean arithmetic expression', () => {
 
   it('Numbers are cleaned correctly', () => {
     const query = ['2'];

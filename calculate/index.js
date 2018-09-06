@@ -6,10 +6,12 @@ const _ = require('lodash');
 const infixToPostfix = require ('./infixToPostfix'),
   constants = require('../constants');
 
+const CalculateError = require('./error').CalculateError;
+
 const SUPPORTED_OPERATIONS = {
   [constants.MULTIPLICATION]: (first, second) => first * second,
   [constants.DIVISION]: (first, second) => {
-    if (second === 0) { throw new Error('Can not divide by zero'); }
+    if (second === 0) { throw new CalculateError('Can not divide by zero'); }
     return first / second;
   },
   [constants.ADDITION]: (first, second) => first + second,
@@ -19,7 +21,7 @@ const SUPPORTED_OPERATIONS = {
 const calculateOperation = (firstOperand, secondOperand, operation) => {
   const operationFunction = SUPPORTED_OPERATIONS[operation];
   if (!operationFunction) {
-    throw new Error(`Operation "${operation}" is not supported`);
+    throw new CalculateError(`Operation "${operation}" is not supported`);
   }
   return operationFunction(firstOperand, secondOperand);
 }
@@ -27,7 +29,7 @@ const calculateOperation = (firstOperand, secondOperand, operation) => {
 module.exports = (query) => {
   // Calculate result of given query. Accepts array with numbers
   // and operations:  + - * / ( )
-  if (_.isEmpty(query)) { throw new Error('Query can not be empty'); }
+  if (_.isEmpty(query)) { throw new CalculateError('Query can not be empty'); }
 
   let calculationStack = [];
   const infixQuery = infixToPostfix(query);

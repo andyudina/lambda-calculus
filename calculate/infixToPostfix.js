@@ -5,6 +5,8 @@ const _ = require('lodash');
 
 const constants = require('../constants');
 
+const CalculateError = require('./error').CalculateError;
+
 const isValidSymbol = (symbol) => {
   return _.isNumber(symbol) ||
     constants.SUPPORTED_ARITHMETIC_SYMBOLS.includes(symbol);
@@ -21,7 +23,7 @@ module.exports = (query) => {
   let operationsStack = [];
   for (const symbol of query) {
     if (!isValidSymbol(symbol)) {
-      throw new Error(`Symbol "${symbol}" is not supported`);
+      throw new CalculateError(`Symbol "${symbol}" is not supported`);
     }
     if (_.isNumber(symbol)) {
       postfix.push(symbol);
@@ -29,7 +31,7 @@ module.exports = (query) => {
       operationsStack.push(symbol);
     } else if (symbol === constants.CLOSE_BRACKET) {
       let lastOperation = operationsStack.pop();
-      if (!lastOperation) { throw new Error('Unbalanced brackets'); }
+      if (!lastOperation) { throw new CalculateError('Unbalanced brackets'); }
       while (lastOperation && lastOperation !== constants.OPEN_BRACKET) {
         postfix.push(lastOperation)
         lastOperation = operationsStack.pop();
@@ -45,11 +47,11 @@ module.exports = (query) => {
     }
   }
   if (operationsStack.includes(constants.OPEN_BRACKET)) {
-    throw new Error('Unbalanced brackets');
+    throw new CalculateError('Unbalanced brackets');
   }
   const postfixQuery = postfix.concat(operationsStack.reverse());
   if (_.isEmpty(postfixQuery)) {
-    throw new Error('Query expected but received empty brackets');
+    throw new CalculateError('Query expected but received empty brackets');
   }
   return postfixQuery;
 };

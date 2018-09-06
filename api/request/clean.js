@@ -4,6 +4,8 @@ const _ = require('lodash');
 
 const constants = require('../../constants');
 
+const RequestError = require('./error').RequestError;
+
 const cleanSymbol = (symbol) => {
   // Convert number to integer, validate that operation is supported
   // and throw error if symbol is not supported
@@ -12,7 +14,7 @@ const cleanSymbol = (symbol) => {
   if (constants.SUPPORTED_ARITHMETIC_SYMBOLS.includes(symbol)) {
     return symbol;
   }
-  throw new Error(`Symbol "${symbol}" is not supported`);
+  throw new RequestError(`Symbol "${symbol}" is not supported`);
 }
 
 module.exports = (expression) => {

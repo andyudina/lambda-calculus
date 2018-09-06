@@ -17,7 +17,7 @@ const isFirstOperationOrderHigher = (firstOperation, secondOperation) => {
   return (
     firstOrderOperations.includes(firstOperation) &&
     secondOrderOperations.includes(secondOperation));
-}
+};
 
 module.exports = (query) => {
   let postfix = [];
@@ -55,4 +55,4 @@ module.exports = (query) => {
     throw new Error('Query expected but received empty brackets');
   }
   return postfixQuery;
-}
+};

@@ -44,4 +44,4 @@ module.exports = (query) => {
   }
 
   return calculationStack.pop().toFixed(2);
-}
+};

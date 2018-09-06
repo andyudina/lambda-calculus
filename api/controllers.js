@@ -6,4 +6,4 @@ module.exports.calculate = (req, res) => {
   res
     .status(200)
     .json({query: query});
-}
+};

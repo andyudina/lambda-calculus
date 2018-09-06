@@ -2,6 +2,8 @@
 
 const HttpStatus = require('http-status-codes');
 
+const constructErrorResponse = require('../response/errors').constructErrorResponse;
+
 module.exports.validateQuery = (expectedQueryParam) => {
   // Validate that query param is not null
   // Return 400 bad reques is param is missing
@@ -10,7 +12,7 @@ module.exports.validateQuery = (expectedQueryParam) => {
     else {
       res
         .status(HttpStatus.BAD_REQUEST)
-        .json({ error: true, message: `${expectedQueryParam} is missing`});
+        .json(constructErrorResponse(`${expectedQueryParam} is missing`));
     }
   }
 };

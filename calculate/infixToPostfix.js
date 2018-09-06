@@ -3,20 +3,17 @@
 // Convert infix to postfix expressions
 const _ = require('lodash');
 
-const OPEN_BRACKET = '(';
-const CLOSE_BRACKET = ')';
+const constants = require('../constants');
 
 const isValidSymbol = (symbol) => {
-  const supportedOperations = ['+', '-', '*', '/', '(', ')'];
-  return _.isNumber(symbol) || supportedOperations.includes(symbol);
+  return _.isNumber(symbol) ||
+    constants.SUPPORTED_ARITHMETIC_SYMBOLS.includes(symbol);
 };
 
 const isFirstOperationOrderHigher = (firstOperation, secondOperation) => {
-  const firstOrderOperations = ['*', '/'];
-  const secondOrderOperations = ['+', '-'];
   return (
-    firstOrderOperations.includes(firstOperation) &&
-    secondOrderOperations.includes(secondOperation));
+    constants.FISRT_ORDER_OPERATIONS.includes(firstOperation) &&
+    constants.SECOND_ORDER_OPERATIONS.includes(secondOperation));
 };
 
 module.exports = (query) => {
@@ -28,12 +25,12 @@ module.exports = (query) => {
     }
     if (_.isNumber(symbol)) {
       postfix.push(symbol);
-    } else if (symbol === OPEN_BRACKET) {
+    } else if (symbol === constants.OPEN_BRACKET) {
       operationsStack.push(symbol);
-    } else if (symbol === CLOSE_BRACKET) {
+    } else if (symbol === constants.CLOSE_BRACKET) {
       let lastOperation = operationsStack.pop();
       if (!lastOperation) { throw new Error('Unbalanced brackets'); }
-      while (lastOperation && lastOperation !== OPEN_BRACKET) {
+      while (lastOperation && lastOperation !== constants.OPEN_BRACKET) {
         postfix.push(lastOperation)
         lastOperation = operationsStack.pop();
       }
@@ -47,7 +44,7 @@ module.exports = (query) => {
       operationsStack.push(symbol);
     }
   }
-  if (operationsStack.includes(OPEN_BRACKET)) {
+  if (operationsStack.includes(constants.OPEN_BRACKET)) {
     throw new Error('Unbalanced brackets');
   }
   const postfixQuery = postfix.concat(operationsStack.reverse());

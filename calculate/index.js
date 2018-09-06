@@ -3,16 +3,17 @@
 // Calculator logic
 const _ = require('lodash');
 
-const infixToPostfix = require ('./infixToPostfix');
+const infixToPostfix = require ('./infixToPostfix'),
+  constants = require('../constants');
 
 const SUPPORTED_OPERATIONS = {
-  '*': (first, second) => first * second,
-  '/': (first, second) => {
+  [constants.MULTIPLICATION]: (first, second) => first * second,
+  [constants.DIVISION]: (first, second) => {
     if (second === 0) { throw new Error('Can not divide by zero'); }
     return first / second;
   },
-  '+': (first, second) => first + second,
-  '-': (first, second) => first - second,
+  [constants.ADDITION]: (first, second) => first + second,
+  [constants.SUBTRACTION]: (first, second) => first - second,
 };
 
 const calculateOperation = (firstOperand, secondOperand, operation) => {

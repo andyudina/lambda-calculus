@@ -19,6 +19,7 @@
     "sinon": "^6.2.0"
   },
   "dependencies": {
+    "lambda-api": "^0.8.0",
     "lodash": "^4.17.10"
   }
 }

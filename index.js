@@ -1,8 +1,13 @@
-exports.handler = (event, context, callback) => {
+"use strict";
+
+const api = require('lambda-api')();
+
+const routes = require('./api/routes');
+
+// Set up routes
+routes(api);
+
+exports.handler = async (event, context) => {
   // Test handler for lambda function
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify('Hello from Lambda!')
-  };
-  callback(null, response);
+  return await api.run(event, context);
 };

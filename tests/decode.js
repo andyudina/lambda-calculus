@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-const decode = require('../api/decode');
+const decode = require('../api/request/decode');
 
 describe('Decode base64 query with utf8 encoding', () => {
 

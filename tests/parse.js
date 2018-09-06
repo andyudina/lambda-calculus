@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-const parse = require('../api/parse');
+const parse = require('../api/request/parse');
 
 describe('Parse arythmetic expression', () => {
 

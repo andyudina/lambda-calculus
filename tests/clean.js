@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-const clean = require('../api/clean');
+const clean = require('../api/request/clean');
 
 describe('Clean arythmetic expression', () => {
 

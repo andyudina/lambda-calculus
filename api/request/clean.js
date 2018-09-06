@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-const constants = require('../constants');
+const constants = require('../../constants');
 
 const cleanSymbol = (symbol) => {
   // Convert number to integer, validate that operation is supported

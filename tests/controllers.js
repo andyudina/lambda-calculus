@@ -28,7 +28,6 @@ describe('Calculate expression in request query', () => {
       error: false,
       result: '3.00'
     };
-    console.log(res.json.getCall(0).args);
     expect(res.json.withArgs(expectedResult).calledOnce).to.be.true;
   });
 

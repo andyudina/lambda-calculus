@@ -6,7 +6,7 @@ const clean = require('../api/clean');
 
 describe('Clean arythmetic expression', () => {
 
-  it('Nmbers are cleaned correctly', () => {
+  it('Numbers are cleaned correctly', () => {
     const query = ['2'];
     expect(clean(query)).to.be.deep.equal([2]);
   });

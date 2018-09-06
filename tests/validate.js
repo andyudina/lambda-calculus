@@ -3,7 +3,7 @@
 const expect = require('chai').expect,
   sinon = require('sinon');
 
-const validateQuery = require('../middleware/validate').validateQuery,
+const validateQuery = require('../api/middleware/validate').validateQuery,
   utils = require('./_utils');
 
 describe('Validate that query parameter exists', () => {

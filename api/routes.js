@@ -6,8 +6,6 @@ const validateQueryMiddleware = require('./middleware/validate').validateQuery;
 
 module.exports = (api) => {
   // Set up routes
-  api.get(
-    '/calculus',
-    validateQueryMiddleware('query'),
-    controllers.calculate);
+  api.use('/calculus',validateQueryMiddleware('query'));
+  api.get('/calculus', controllers.calculate);
 };

@@ -14,5 +14,5 @@ module.exports.validateQuery = (expectedQueryParam) => {
         .status(HttpStatus.BAD_REQUEST)
         .json(constructErrorResponse(`${expectedQueryParam} is missing`));
     }
-  }
+  };
 };

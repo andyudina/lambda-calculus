@@ -2,10 +2,14 @@
 
 const controllers = require('./controllers');
 
-const validateQueryMiddleware = require('./middleware/validate').validateQuery;
+const handleUnknownError = require('./response/errors').handleUnknownError,
+  validateQueryMiddleware = require('./middleware/validate').validateQuery;
 
 module.exports = (api) => {
   // Set up routes
   api.use('/calculus',validateQueryMiddleware('query'));
   api.get('/calculus', controllers.calculate);
+
+  // Add custom error handler
+  api.use(handleUnknownError);
 };

@@ -16,7 +16,7 @@ describe('Convert infix notation to postfix', () => {
     expect(infixToPostfix(calculateRequest)).to.be.deep.equal([2, 3, '+'])
   })
 
-  it('Operations with differnt order converted successfully', () => {
+  it('Operations with different order converted successfully', () => {
     const calculateRequest = [2, '*', 3, '+', 5, '*', 1]
     expect(infixToPostfix(calculateRequest))
       .to.be.deep.equal([2, 3, '*', 5, 1, '*', '+'])

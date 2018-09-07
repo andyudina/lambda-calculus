@@ -69,12 +69,12 @@ describe('Calculator', () => {
     expect(calculate(calculateRequest)).to.be.equal('60.00')
   })
 
-  it('Support multiple levels of brackes', () => {
+  it('Support multiple levels of brackets', () => {
     const calculateRequest = [0, '+', '(', 1, '+', 2, '*', '(', 3, '+', 5, ')', ')']
     expect(calculate(calculateRequest)).to.be.equal('17.00')
   })
 
-  it('Throw error if dision by zero occured', () => {
+  it('Throw error if division by zero occurred', () => {
     const calculateRequest = [1, '/', 0]
     expect(() => { calculate(calculateRequest) })
       .to.throw('Can not divide by zero')

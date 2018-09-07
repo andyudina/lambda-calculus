@@ -5,7 +5,7 @@ const expect = require('chai').expect
 
 const parse = require('../api/request/parse')
 
-describe('Parse arythmetic expression', () => {
+describe('Parse arithmetic expression', () => {
   it('Single number is parsed correctly', () => {
     const query = '2'
     expect(parse(query)).to.be.deep.equal(['2'])

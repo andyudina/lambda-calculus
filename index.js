@@ -7,6 +7,6 @@ const routes = require('./api/routes');
 // Set up routes
 routes(api);
 
-exports.handler = async (event, context) => {
-  return await api.run(event, context);
+exports.handler = (event, context, callback) => {
+  api.run(event, context, callback);
 };

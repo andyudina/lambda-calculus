@@ -13,7 +13,7 @@ const clean = require('./request/clean')
 const calculate = require('../calculate')
 
 const calculateExpression = (query) => {
-  // Parse and caclulate query
+  // Parse and calculate query
   // Throw RequestError if can not process query
   // Throw CalculateError if can not calculate result
   const decodedQuery = decode(query)
@@ -22,11 +22,11 @@ const calculateExpression = (query) => {
   return calculate(expression)
 }
 
-// Export is needed for sinon , so it is able to stub fuction
+// Export is needed for sinon , so it is able to stub function
 module.exports.calculateExpression = calculateExpression
 
 module.exports.calculate = (req, res, next) => {
-  // Parse and caclulate expression in query string
+  // Parse and calculate expression in query string
   const query = req.query.query
   let number
   try {

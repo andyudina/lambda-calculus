@@ -18,7 +18,7 @@ const isFirstOrderOperation = (operation) => {
 }
 
 const findLastNotFirstOrderOperation = (opStack) => {
-  // Return last index of second order operation or bracktes
+  // Return last index of second order operation or brackets
   // returns -1 if all operations are first order
   const operations = [
     ...constants.SECOND_ORDER_OPERATIONS,
@@ -107,7 +107,7 @@ module.exports = (query) => {
   if (operationStack.includes(constants.OPEN_BRACKET)) {
     throw new CalculateError('Unbalanced brackets')
   }
-  // Append all opeations in the end of postfix expression
+  // Append all operations in the end of postfix expression
   const postfixQuery = postfix.concat(operationStack.reverse())
   // Throw error if result postfix expression is empty
   // it means that expression consisted of only brackets

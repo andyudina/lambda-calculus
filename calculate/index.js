@@ -48,7 +48,7 @@ const processOneSymbol = (symbol, calculationStack) => {
 }
 
 module.exports = (query) => {
-  // Calculate result of given query. Accepts array with numbers
+  // Calculate result of the given query. Accepts array with numbers
   // and operations:  + - * / ( )
   if (_.isEmpty(query)) { throw new CalculateError('Query can not be empty') }
 

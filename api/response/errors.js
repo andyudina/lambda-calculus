@@ -14,6 +14,6 @@ module.exports.handleUnknownError = (err, req, res, next) => {
   console.log(err)
   res
     .status(HttpStatus.INTERNAL_SERVER_ERROR)
-    .json(constructErrorResponse('Unknown error occured'))
+    .json(constructErrorResponse('Unknown error occurred'))
   next()
 }

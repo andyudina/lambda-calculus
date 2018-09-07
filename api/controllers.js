@@ -22,9 +22,6 @@ const calculateExpression = (query) => {
   return calculate(expression)
 }
 
-// Export is needed for sinon , so it is able to stub function
-module.exports.calculateExpression = calculateExpression
-
 module.exports.calculate = (req, res, next) => {
   // Parse and calculate expression in query string
   const query = req.query.query

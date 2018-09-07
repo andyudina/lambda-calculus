@@ -1,6 +1,7 @@
 "use strict";
 
 // Calculator logic
+
 const _ = require('lodash');
 
 const infixToPostfix = require ('./infixToPostfix'),
@@ -24,7 +25,26 @@ const calculateOperation = (firstOperand, secondOperand, operation) => {
     throw new CalculateError(`Operation "${operation}" is not supported`);
   }
   return operationFunction(firstOperand, secondOperand);
-}
+};
+
+const processOneSymbol = (symbol, calculationStack) => {
+  // Helper to process one symbol from infix expression
+  // Returns updated calculation stack
+  // Add number to stack
+  if (_.isNumber(symbol)) {
+      return [...calculationStack, symbol];
+  }
+  // Get last two numbers from stack and perform operation using them
+  const secondOperand = calculationStack[calculationStack.length - 1];
+  const firstOperand = calculationStack[calculationStack.length - 2];
+  if (!_.isNumber(secondOperand) || !_.isNumber(firstOperand)) {
+    throw new CalculateError('Postfix expression has invalid format');
+  }
+  const result = calculateOperation(firstOperand, secondOperand, symbol);
+  return [
+    ...calculationStack.slice(0, calculationStack.length - 2),
+    result];
+};
 
 module.exports = (query) => {
   // Calculate result of given query. Accepts array with numbers
@@ -36,14 +56,7 @@ module.exports = (query) => {
 
   // Iterate over query
   for (const symbol of infixQuery) {
-    if (_.isNumber(symbol)) {
-      calculationStack.push(symbol);
-    } else {
-      const secondOperand = calculationStack.pop();
-      const firstOperand = calculationStack.pop();
-      const result = calculateOperation(firstOperand, secondOperand, symbol);
-      calculationStack.push(result);
-    }
+    calculationStack = processOneSymbol(symbol, calculationStack);
   }
 
   return calculationStack.pop().toFixed(2);

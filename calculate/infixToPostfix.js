@@ -19,7 +19,7 @@ const isFirstOrderOperation = (operation) => {
 
 const findLastNotFirstOrderOperation = (opStack) => {
   // Return last index of second order operation or bracktes
-  //returns -1 if all operations are first order
+  // returns -1 if all operations are first order
   const operations = [
     ...constants.SECOND_ORDER_OPERATIONS,
     constants.OPEN_BRACKET,

@@ -4,6 +4,8 @@
   "description": "Calculator API",
   "main": "index.js",
   "scripts": {
+    "run": "sam local start-api",
+    "build": "PACKAGE_DIRECTORY='./build' node-lambda package",
     "test": "NODE_ENV=test mocha './tests/**/*.js'"
   },
   "keywords": [

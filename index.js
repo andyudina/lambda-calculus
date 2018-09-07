@@ -1,12 +1,12 @@
-"use strict";
+'use strict'
 
-const api = require('lambda-api')();
+const api = require('lambda-api')()
 
-const routes = require('./api/routes');
+const routes = require('./api/routes')
 
 // Set up routes
-routes(api);
+routes(api)
 
 exports.handler = (event, context, callback) => {
-  api.run(event, context, callback);
-};
+  api.run(event, context, callback)
+}

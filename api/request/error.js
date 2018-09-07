@@ -1,14 +1,14 @@
-"use strict";
+'use strict'
 
 // Request related errors
 
 class RequestError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'RequestError';
+  constructor (message) {
+    super(message)
+    this.name = 'RequestError'
   }
 };
 
 module.exports = {
   RequestError
-};
+}

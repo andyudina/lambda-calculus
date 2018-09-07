@@ -1,37 +1,37 @@
-const OPEN_BRACKET = '(';
+const OPEN_BRACKET = '('
 
-const CLOSE_BRACKET = ')';
+const CLOSE_BRACKET = ')'
 
-const ADDITION = '+';
+const ADDITION = '+'
 
-const SUBTRACTION = '-';
+const SUBTRACTION = '-'
 
-const MULTIPLICATION = '*';
+const MULTIPLICATION = '*'
 
-const DIVISION = '/';
+const DIVISION = '/'
 
-const SUPPORTED_OPERATIONS = [,
+const SUPPORTED_OPERATIONS = [
   ADDITION,
   SUBTRACTION,
   MULTIPLICATION,
   DIVISION
-];
+]
 
 const SUPPORTED_ARITHMETIC_SYMBOLS = [
   ...SUPPORTED_OPERATIONS,
   OPEN_BRACKET,
   CLOSE_BRACKET
-];
+]
 
 const FISRT_ORDER_OPERATIONS = [
   MULTIPLICATION,
   DIVISION
-];
+]
 
 const SECOND_ORDER_OPERATIONS = [
   ADDITION,
   SUBTRACTION
-];
+]
 
 module.exports = {
   OPEN_BRACKET,
@@ -46,4 +46,4 @@ module.exports = {
 
   FISRT_ORDER_OPERATIONS,
   SECOND_ORDER_OPERATIONS
-};
+}

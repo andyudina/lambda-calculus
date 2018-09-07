@@ -7,7 +7,7 @@
     "run": "sam local start-api",
     "build": "PACKAGE_DIRECTORY='./build' node-lambda package",
     "test": "NODE_ENV=test mocha './tests/**/*.js'",
-    "pretest": "eslint --ignore-path .gitignore ."
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ."
   },
   "keywords": [
     "Lambda",
